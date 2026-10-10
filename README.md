@@ -28,3 +28,4 @@ static frontend served from a CDN. Rate limits are per-instance in memory: use L
 - The AI second opinion was tested only against a mock; no live Anthropic call was made. AI "polish" is not built (R1.1).
 - No offline/PWA (analysis is server-side), no read-aloud voice testing on real devices, no TalkBack/NVDA pass, no legal review.
 - Privacy claim is "nothing stored or logged on our server", not "nothing leaves your device".
+# GoldenHour
