@@ -1,14 +1,29 @@
 import re
-from datetime import datetime, timezone
-from hypothesis import given, settings, strategies as st
+from datetime import UTC, datetime
+
+from hypothesis import given, settings
+from hypothesis import strategies as st
+
 from app import builders as b
-from app.fields import empty_fields, missing_items, fields_from, validate, elapsed_banner
+from app.fields import elapsed_banner, empty_fields, fields_from, missing_items, validate
 
 txt = st.text(alphabet=st.characters(exclude_characters="QZXJ", exclude_categories=["Cs"]), max_size=40)
-fields_st = st.fixed_dictionaries({
-    "amount": txt, "bank": txt, "account": txt, "when": txt, "mobile": txt, "name": txt, "location": txt, "description": txt,
-    "utrs": st.lists(txt, max_size=3), "scamPhones": st.lists(txt, max_size=2),
-    "scamUpi": st.lists(txt, max_size=2), "scamLinks": st.lists(txt, max_size=2)})
+fields_st = st.fixed_dictionaries(
+    {
+        "amount": txt,
+        "bank": txt,
+        "account": txt,
+        "when": txt,
+        "mobile": txt,
+        "name": txt,
+        "location": txt,
+        "description": txt,
+        "utrs": st.lists(txt, max_size=3),
+        "scamPhones": st.lists(txt, max_size=2),
+        "scamUpi": st.lists(txt, max_size=2),
+        "scamLinks": st.lists(txt, max_size=2),
+    }
+)
 
 
 SECRET = st.text(alphabet=st.sampled_from("QZXJ"), min_size=4, max_size=10)
@@ -23,7 +38,12 @@ def test_call_script_never_has_tier2(f, name, loc, desc):
 
 
 def test_mode_a_excludes_tier2_values():
-    f = empty_fields() | {"name": "Zed Qwerty", "location": "Kothrud Pune", "description": "weird story xyz", "amount": "₹100"}
+    f = empty_fields() | {
+        "name": "Zed Qwerty",
+        "location": "Kothrud Pune",
+        "description": "weird story xyz",
+        "amount": "₹100",
+    }
     out = b.pack_txt(f, "A").split("COMPLAINT TEXT")[0]
     assert "Zed Qwerty" not in out and "Kothrud" not in out and "xyz" not in out and "₹100" in out
     out_b = b.pack_txt(f, "B").split("COMPLAINT TEXT")[0]
@@ -46,7 +66,7 @@ def test_pairing_and_missing():
 
 def test_footer_and_ics():
     assert "Delete this file from shared devices." in b.pack_txt(empty_fields(), "A")
-    s = b.ics(30, datetime(2026, 10, 10, tzinfo=timezone.utc))
+    s = b.ics(30, datetime(2026, 10, 10, tzinfo=UTC))
     assert "BEGIN:VEVENT" in s and "DTSTART:20261010T233000Z" in s and "http" not in s
 
 
@@ -63,6 +83,18 @@ def test_validate_and_elapsed():
 
 
 def test_fields_from():
-    f = fields_from({"amounts": ["₹1"], "utrs": ["1"], "banks": ["SBI"], "apps": [], "accountLast4": ["XX1"], "whenHints": ["today"],
-                     "victimPhones": ["+911"], "phones": ["+912"], "upiIds": ["a@b"], "urls": []})
+    f = fields_from(
+        {
+            "amounts": ["₹1"],
+            "utrs": ["1"],
+            "banks": ["SBI"],
+            "apps": [],
+            "accountLast4": ["XX1"],
+            "whenHints": ["today"],
+            "victimPhones": ["+911"],
+            "phones": ["+912"],
+            "upiIds": ["a@b"],
+            "urls": [],
+        }
+    )
     assert f["bank"] == "SBI" and f["mobile"] == "+911" and f["scamPhones"] == ["+912"]

@@ -1,4 +1,5 @@
-from app.extract import extract_incident as ex, indian_group
+from app.extract import extract_incident as ex
+from app.extract import indian_group
 from app.text import normalize, redact
 from tests import samples
 

@@ -1,5 +1,7 @@
 import json
+
 import pytest
+
 from app import detect
 from app.text import normalize, redact
 from tests import samples
@@ -63,7 +65,7 @@ def test_negation():
 def test_spans_point_at_evidence():
     t = "Please share the OTP now"
     h = detect.detect(t)["hits"][0]
-    assert t[h["start"]:h["end"]].startswith("share")
+    assert t[h["start"] : h["end"]].startswith("share")
 
 
 def test_urls():

@@ -1,0 +1,439 @@
+[
+ {
+  "id": "what-is-1930",
+  "q": {
+   "en": "What is 1930?"
+  },
+  "a": {
+   "en": "1930 is India's national helpline for cyber financial fraud. It is run by state and Union Territory law enforcement. Call it as early as you can after losing money."
+  },
+  "keywords": [
+   "1930",
+   "helpline",
+   "number",
+   "call"
+  ],
+  "sources": [
+   {
+    "title": "Special Advisory, Cyber Jagrookta Divas (Canara Bank / I4C), April 2023",
+    "publisher": "Canara Bank / I4C",
+    "url": "https://canarabank.com/UploadedFiles/Pdf/(57) Special Advisory Cyber Jagrookta Divas-April 2023.pdf"
+   },
+   {
+    "title": "Got scammed online? Here's what you can do",
+    "publisher": "Newschecker",
+    "url": "https://newschecker.in/scam-watch/got-scammed-online-heres-what-you-can-do"
+   }
+  ],
+  "verifiedOn": "2026-10-10",
+  "reviewBy": "2027-01-10"
+ },
+ {
+  "id": "what-is-portal",
+  "q": {
+   "en": "What is cybercrime.gov.in?"
+  },
+  "a": {
+   "en": "It is the National Cyber Crime Reporting Portal. Victims can file a complaint there themselves, with or without calling 1930 first."
+  },
+  "keywords": [
+   "portal",
+   "cybercrime.gov.in",
+   "ncrp",
+   "website",
+   "complaint"
+  ],
+  "sources": [
+   {
+    "title": "Got scammed online? Here's what you can do",
+    "publisher": "Newschecker",
+    "url": "https://newschecker.in/scam-watch/got-scammed-online-heres-what-you-can-do"
+   }
+  ],
+  "verifiedOn": "2026-10-10",
+  "reviewBy": "2027-01-10"
+ },
+ {
+  "id": "call-or-portal",
+  "q": {
+   "en": "Do I call 1930 or file on the portal?"
+  },
+  "a": {
+   "en": "Do both. Calling 1930 starts the process quickly, and a formal complaint is then needed on cybercrime.gov.in within 24 hours. You can also file on the portal yourself."
+  },
+  "keywords": [
+   "call",
+   "portal",
+   "both",
+   "which",
+   "1930"
+  ],
+  "sources": [
+   {
+    "title": "Special Advisory, Cyber Jagrookta Divas (Canara Bank / I4C), April 2023",
+    "publisher": "Canara Bank / I4C",
+    "url": "https://canarabank.com/UploadedFiles/Pdf/(57) Special Advisory Cyber Jagrookta Divas-April 2023.pdf"
+   },
+   {
+    "title": "Got scammed online? Here's what you can do",
+    "publisher": "Newschecker",
+    "url": "https://newschecker.in/scam-watch/got-scammed-online-heres-what-you-can-do"
+   }
+  ],
+  "verifiedOn": "2026-10-10",
+  "reviewBy": "2027-01-10"
+ },
+ {
+  "id": "what-to-keep-ready",
+  "q": {
+   "en": "What details should I keep ready for the 1930 call?"
+  },
+  "a": {
+   "en": "The operator asks for the minimum: your mobile number, bank name, account number or UPI ID, the 12-digit UTR of the transaction, the date, card details if a card was used, and screenshots."
+  },
+  "keywords": [
+   "details",
+   "ready",
+   "documents",
+   "need",
+   "information"
+  ],
+  "sources": [
+   {
+    "title": "Special Advisory, Cyber Jagrookta Divas (Canara Bank / I4C), April 2023",
+    "publisher": "Canara Bank / I4C",
+    "url": "https://canarabank.com/UploadedFiles/Pdf/(57) Special Advisory Cyber Jagrookta Divas-April 2023.pdf"
+   }
+  ],
+  "verifiedOn": "2026-10-10",
+  "reviewBy": "2027-01-10"
+ },
+ {
+  "id": "what-is-utr",
+  "q": {
+   "en": "What is a UTR?"
+  },
+  "a": {
+   "en": "A UTR (also called UPI Ref No. or RRN) is the 12-digit reference number of a UPI or IMPS transaction. The 1930 operator asks for it."
+  },
+  "keywords": [
+   "utr",
+   "rrn",
+   "reference",
+   "transaction id",
+   "upi ref"
+  ],
+  "sources": [
+   {
+    "title": "Special Advisory, Cyber Jagrookta Divas (Canara Bank / I4C), April 2023",
+    "publisher": "Canara Bank / I4C",
+    "url": "https://canarabank.com/UploadedFiles/Pdf/(57) Special Advisory Cyber Jagrookta Divas-April 2023.pdf"
+   }
+  ],
+  "verifiedOn": "2026-10-10",
+  "reviewBy": "2027-01-10"
+ },
+ {
+  "id": "where-find-utr",
+  "q": {
+   "en": "Where do I find my transaction ID (UTR)?"
+  },
+  "a": {
+   "en": "Open your bank or UPI app, go to transaction history, and open the payment. It may be called UPI Ref No. or RRN. In Google Pay it appears as the UPI transaction ID. Take a screenshot."
+  },
+  "keywords": [
+   "find",
+   "utr",
+   "where",
+   "transaction id",
+   "history",
+   "google pay"
+  ],
+  "sources": [
+   {
+    "title": "Special Advisory, Cyber Jagrookta Divas (Canara Bank / I4C), April 2023",
+    "publisher": "Canara Bank / I4C",
+    "url": "https://canarabank.com/UploadedFiles/Pdf/(57) Special Advisory Cyber Jagrookta Divas-April 2023.pdf"
+   }
+  ],
+  "verifiedOn": "2026-10-10",
+  "reviewBy": "2027-01-10"
+ },
+ {
+  "id": "cant-find-utr",
+  "q": {
+   "en": "What if I can't find the UTR?"
+  },
+  "a": {
+   "en": "Call 1930 anyway and give what you have: amount, date, time, bank and the scammer's number or UPI ID. Look for the UTR afterwards in your app history or your bank's debit SMS."
+  },
+  "keywords": [
+   "cant",
+   "missing",
+   "lost",
+   "utr",
+   "no transaction id"
+  ],
+  "sources": [
+   {
+    "title": "Special Advisory, Cyber Jagrookta Divas (Canara Bank / I4C), April 2023",
+    "publisher": "Canara Bank / I4C",
+    "url": "https://canarabank.com/UploadedFiles/Pdf/(57) Special Advisory Cyber Jagrookta Divas-April 2023.pdf"
+   }
+  ],
+  "verifiedOn": "2026-10-10",
+  "reviewBy": "2027-01-10"
+ },
+ {
+  "id": "formal-complaint-24h",
+  "q": {
+   "en": "Is a formal complaint needed after I call 1930?"
+  },
+  "a": {
+   "en": "Yes. After the call, a formal complaint is due on the portal within 24 hours."
+  },
+  "keywords": [
+   "24 hours",
+   "formal",
+   "complaint",
+   "deadline",
+   "after call"
+  ],
+  "sources": [
+   {
+    "title": "Special Advisory, Cyber Jagrookta Divas (Canara Bank / I4C), April 2023",
+    "publisher": "Canara Bank / I4C",
+    "url": "https://canarabank.com/UploadedFiles/Pdf/(57) Special Advisory Cyber Jagrookta Divas-April 2023.pdf"
+   }
+  ],
+  "verifiedOn": "2026-10-10",
+  "reviewBy": "2027-01-10"
+ },
+ {
+  "id": "reference-sms",
+  "q": {
+   "en": "What is the reference number SMS?"
+  },
+  "a": {
+   "en": "After you call 1930, an SMS arrives with a complaint reference number. Keep it. You use it on the portal and with your bank."
+  },
+  "keywords": [
+   "sms",
+   "reference number",
+   "acknowledgement",
+   "complaint number"
+  ],
+  "sources": [
+   {
+    "title": "Special Advisory, Cyber Jagrookta Divas (Canara Bank / I4C), April 2023",
+    "publisher": "Canara Bank / I4C",
+    "url": "https://canarabank.com/UploadedFiles/Pdf/(57) Special Advisory Cyber Jagrookta Divas-April 2023.pdf"
+   }
+  ],
+  "verifiedOn": "2026-10-10",
+  "reviewBy": "2027-01-10"
+ },
+ {
+  "id": "chakshu",
+  "q": {
+   "en": "What is Chakshu for?"
+  },
+  "a": {
+   "en": "Chakshu (on Sanchar Saathi) is for reporting suspected fraud calls, SMS and messages. It is not for money you have already lost. For a loss, call 1930 and use the portal."
+  },
+  "keywords": [
+   "chakshu",
+   "sanchar saathi",
+   "suspected",
+   "report message"
+  ],
+  "sources": [
+   {
+    "title": "How to report suspected fraud communication via DoT's Chakshu facility",
+    "publisher": "Outlook Money",
+    "url": "https://www.outlookmoney.com/retirement/financial-planning/how-to-report-suspected-fraud-communication-via-dots-chakshu-facility"
+   }
+  ],
+  "verifiedOn": "2026-10-10",
+  "reviewBy": "2027-01-10"
+ },
+ {
+  "id": "digital-arrest-legal",
+  "q": {
+   "en": "Is 'digital arrest' real?"
+  },
+  "a": {
+   "en": "No. There is no concept of 'digital arrest' in Indian law. Police or agencies do not arrest people over a video call or ask for money to clear a case."
+  },
+  "keywords": [
+   "digital arrest",
+   "video call",
+   "police",
+   "arrest",
+   "cbi"
+  ],
+  "sources": [
+   {
+    "title": "How India's cyber crime incidence is rising",
+    "publisher": "IndiaSpend",
+    "url": "https://www.indiaspend.com/data-viz/dataviz-how-indias-cyber-crime-incidence-is-rising-972933"
+   }
+  ],
+  "verifiedOn": "2026-10-10",
+  "reviewBy": "2027-01-10"
+ },
+ {
+  "id": "who-asks-otp",
+  "q": {
+   "en": "What does the 1930 agent ask me? Will they ask for my OTP?"
+  },
+  "a": {
+   "en": "The details the agent asks for are listed in the official advisory: mobile, bank, account or UPI ID, UTR, date, card details if used, and screenshots. OTP, PIN, CVV and passwords are not on that list. Never share them with anyone."
+  },
+  "keywords": [
+   "otp",
+   "pin",
+   "cvv",
+   "password",
+   "agent",
+   "fake helpline"
+  ],
+  "sources": [
+   {
+    "title": "Special Advisory, Cyber Jagrookta Divas (Canara Bank / I4C), April 2023",
+    "publisher": "Canara Bank / I4C",
+    "url": "https://canarabank.com/UploadedFiles/Pdf/(57) Special Advisory Cyber Jagrookta Divas-April 2023.pdf"
+   }
+  ],
+  "verifiedOn": "2026-10-10",
+  "reviewBy": "2027-01-10"
+ },
+ {
+  "id": "evidence-to-keep",
+  "q": {
+   "en": "What evidence should I keep?"
+  },
+  "a": {
+   "en": "Screenshots of the transactions, the scammer's number and messages. The advisory lists screenshots among the things to have when you report."
+  },
+  "keywords": [
+   "evidence",
+   "screenshot",
+   "proof",
+   "keep"
+  ],
+  "sources": [
+   {
+    "title": "Special Advisory, Cyber Jagrookta Divas (Canara Bank / I4C), April 2023",
+    "publisher": "Canara Bank / I4C",
+    "url": "https://canarabank.com/UploadedFiles/Pdf/(57) Special Advisory Cyber Jagrookta Divas-April 2023.pdf"
+   }
+  ],
+  "verifiedOn": "2026-10-10",
+  "reviewBy": "2027-01-10"
+ },
+ {
+  "id": "how-big-is-problem",
+  "q": {
+   "en": "How common is cyber fraud in India?"
+  },
+  "a": {
+   "en": "In 2025, about 21.8 lakh cheating complaints were reported, with losses of about ₹19,813 crore (IANS, January 2026). You are not alone."
+  },
+  "keywords": [
+   "how common",
+   "statistics",
+   "numbers",
+   "alone",
+   "2025"
+  ],
+  "sources": [
+   {
+    "title": "Indians lose over Rs 52,976 crore to cyber frauds over six years: Report",
+    "publisher": "IANS",
+    "url": "https://ianslive.in/indians-lose-over-rs-52976-crore-to-cyber-frauds-over-six-years-report--20260103154943"
+   }
+  ],
+  "verifiedOn": "2026-10-10",
+  "reviewBy": "2027-01-10"
+ },
+ {
+  "id": "investment-scams",
+  "q": {
+   "en": "Which scams cause the most loss?"
+  },
+  "a": {
+   "en": "Investment schemes caused about 77% of the losses in 2025, and 'digital arrest' scams about 8% (IANS, January 2026)."
+  },
+  "keywords": [
+   "investment",
+   "most common",
+   "trading",
+   "loss",
+   "stock"
+  ],
+  "sources": [
+   {
+    "title": "Indians lose over Rs 52,976 crore to cyber frauds over six years: Report",
+    "publisher": "IANS",
+    "url": "https://ianslive.in/indians-lose-over-rs-52976-crore-to-cyber-frauds-over-six-years-report--20260103154943"
+   }
+  ],
+  "verifiedOn": "2026-10-10",
+  "reviewBy": "2027-01-10"
+ },
+ {
+  "id": "first-half-2026",
+  "q": {
+   "en": "What do the latest numbers say?"
+  },
+  "a": {
+   "en": "From 1 January to 30 June 2026, about 12.71 lakh complaints were filed and over ₹10,178.97 crore was lost."
+  },
+  "keywords": [
+   "2026",
+   "latest",
+   "recent",
+   "six months"
+  ],
+  "sources": [
+   {
+    "title": "Cyber fraud complaints: 12.7 lakh in six months (reporting Indian Express)",
+    "publisher": "Anantam IAS",
+    "url": "https://anantamias.com/current-affairs/cyber-fraud-complaints-12-7-lakh-six-months/?pdf=1"
+   },
+   {
+    "title": "Cyber fraud complaints cross 12.7 lakh in six months (secondary source)",
+    "publisher": "EaseMyPrep",
+    "url": "https://easemyprep.in/news/3062-cyber-fraud-complaints-cross-127-lakh-in-six-months-rs-10178-crore-lost"
+   }
+  ],
+  "verifiedOn": "2026-10-10",
+  "reviewBy": "2027-01-10"
+ },
+ {
+  "id": "money-frozen-refunded",
+  "q": {
+   "en": "How much money is recovered?"
+  },
+  "a": {
+   "en": "Between 2021 and May 2026, about ₹64,447 crore was lost, ₹10,718 crore frozen and ₹323 crore refunded (secondary source). Reporting early improves the chance of freezing money, but nobody can promise a refund."
+  },
+  "keywords": [
+   "refund",
+   "recover",
+   "frozen",
+   "get money back",
+   "chances"
+  ],
+  "sources": [
+   {
+    "title": "Cyber fraud complaints cross 12.7 lakh in six months (secondary source)",
+    "publisher": "EaseMyPrep",
+    "url": "https://easemyprep.in/news/3062-cyber-fraud-complaints-cross-127-lakh-in-six-months-rs-10178-crore-lost"
+   }
+  ],
+  "verifiedOn": "2026-10-10",
+  "reviewBy": "2027-01-10"
+ }
+]

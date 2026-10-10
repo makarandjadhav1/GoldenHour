@@ -1,6 +1,8 @@
 """Incident extraction from a victim's own words. Pure functions over normalised, redacted text."""
+
 import json
 import re
+
 from .detect import DATA, extract_urls
 
 _BANKS = json.loads((DATA / "banks.json").read_text())
@@ -12,8 +14,10 @@ _DATE = re.compile(
 )
 _AMOUNT = re.compile(r"(?i)(?:₹|\brs\.?|\binr)\s*([\d,]+(?:\.\d+)?)\s*(lakhs?|lacs?|crores?|cr\b)?")
 _AMOUNT_HI = re.compile(r"([\d,]+(?:\.\d+)?)\s*(?:रुपये|रु\.?)")
-_LABEL = (r"(?:\butr\b|\brrn\b|ref(?:erence)?(?:\s*(?:no\.?|number|id))?|txn(?:\s*(?:id|no\.?))?|"
-          r"transaction\s*(?:id|no\.?|number|ref)?|upi\s*ref(?:erence)?(?:\s*(?:no\.?|id))?)")
+_LABEL = (
+    r"(?:\butr\b|\brrn\b|ref(?:erence)?(?:\s*(?:no\.?|number|id))?|txn(?:\s*(?:id|no\.?))?|"
+    r"transaction\s*(?:id|no\.?|number|ref)?|upi\s*ref(?:erence)?(?:\s*(?:no\.?|id))?)"
+)
 _UTR = re.compile(r"(?i)" + _LABEL + r"\W{0,12}(\d{12})(?!\d)")
 _UTR_ALNUM = re.compile(r"(?i)" + _LABEL + r"\W{0,12}([A-Z0-9]{13,22})\b")
 _TWELVE = re.compile(r"(?<!\d)\d{12}(?!\d)")
@@ -75,7 +79,7 @@ def extract_incident(text: str) -> dict:
     possible = []
     for m in _TWELVE.finditer(text):
         tok = m.group(0)
-        if tok in utrs or re.search(r"(?i)aadh?aa?r|uid", text[max(0, m.start() - 25):m.start()]):
+        if tok in utrs or re.search(r"(?i)aadh?aa?r|uid", text[max(0, m.start() - 25) : m.start()]):
             continue
         if tok.startswith("91") and tok[2] in "6789":
             continue
@@ -84,15 +88,20 @@ def extract_incident(text: str) -> dict:
     phones, victim = [], []
     for m in _PHONE.finditer(text):
         num = "+91" + re.sub(r"\D", "", m.group(1))
-        (victim if _MINE.search(text[max(0, m.start() - 30):m.start()]) else phones).append(num)
+        (victim if _MINE.search(text[max(0, m.start() - 30) : m.start()]) else phones).append(num)
 
     low = text.lower()
-    when = [m.group(0).strip().upper() if ":" in m.group(0) or "." in m.group(0) else m.group(0).strip()
-            for m in _DATE.finditer(text)] + [m.group(0).strip().upper() for m in _TIME.finditer(text)]
+    when = [
+        m.group(0).strip().upper() if ":" in m.group(0) or "." in m.group(0) else m.group(0).strip() for m in _DATE.finditer(text)
+    ] + [m.group(0).strip().upper() for m in _TIME.finditer(text)]
     return {
-        "amounts": _amounts(text), "utrs": utrs, "possibleUtrs": uniq(possible),
+        "amounts": _amounts(text),
+        "utrs": utrs,
+        "possibleUtrs": uniq(possible),
         "upiIds": uniq(f"{m.group(1)}@{m.group(2)}" for m in _UPI.finditer(text)),
-        "phones": uniq(phones), "victimPhones": uniq(victim), "urls": extract_urls(text),
+        "phones": uniq(phones),
+        "victimPhones": uniq(victim),
+        "urls": extract_urls(text),
         "banks": [n for n, p in _BANKS["banks"].items() if re.search(rf"\b(?:{p})\b", low)],
         "apps": [n for n, p in _BANKS["apps"].items() if re.search(rf"\b(?:{p})\b", low)],
         "accountLast4": uniq("XX" + m.group(1) for m in _LAST4.finditer(text)),
