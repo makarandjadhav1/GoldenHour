@@ -1,0 +1,30 @@
+{
+ "banks": {
+  "SBI": "sbi|state\\s+bank(?:\\s+of\\s+india)?",
+  "HDFC Bank": "hdfc",
+  "ICICI Bank": "icici",
+  "Axis Bank": "axis",
+  "Kotak": "kotak",
+  "Punjab National Bank": "pnb|punjab\\s+national",
+  "Bank of Baroda": "bank\\s+of\\s+baroda|bob",
+  "Canara Bank": "canara",
+  "Union Bank": "union\\s+bank",
+  "IDFC First": "idfc",
+  "Yes Bank": "yes\\s+bank",
+  "IndusInd": "indusind",
+  "Federal Bank": "federal\\s+bank",
+  "Bank of India": "bank\\s+of\\s+india",
+  "IDBI": "idbi",
+  "Indian Bank": "indian\\s+bank",
+  "Bandhan": "bandhan",
+  "RBL": "rbl",
+  "Paytm Payments Bank": "paytm\\s+payments?\\s+bank"
+ },
+ "apps": {
+  "Google Pay": "google\\s*pay|gpay|g\\s*pay",
+  "PhonePe": "phone\\s*pe",
+  "Paytm": "paytm",
+  "BHIM": "bhim",
+  "Amazon Pay": "amazon\\s*pay"
+ }
+}

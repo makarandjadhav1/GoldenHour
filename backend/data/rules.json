@@ -1,0 +1,443 @@
+[
+ {
+  "id": "credential_request",
+  "weight": 70,
+  "category": "credential",
+  "critical": true,
+  "pattern": "\\b(?:share|send|tell|give|provide|forward|read\\s*out|enter|type|confirm)\\b[^.\\n]{0,40}?\\b(?:otp|pin|cvv|cvc|password|passcode|mpin)\\b",
+  "flags": "i",
+  "label": {
+   "en": "Asks you to share an OTP / PIN / CVV / password"
+  },
+  "why": {
+   "en": "No bank, government office or genuine company needs your OTP, PIN or CVV. Sharing it hands over your money."
+  },
+  "examples": [
+   "Please share the OTP you just received to confirm.",
+   "Kindly send your CVV to verify the card."
+  ],
+  "counterExamples": [
+   "Never share your OTP with anyone.",
+   "We will never ask you to share your OTP or PIN."
+  ],
+  "unlessBefore": "(?:\\bnever|\\bnot\\b|n't|\\bdont|\\bno\\s+one|\\bnobody)[^.\\n]{0,30}$"
+ },
+ {
+  "id": "remote_access",
+  "weight": 65,
+  "category": "malware",
+  "critical": true,
+  "pattern": "\\b(?:anydesk|teamviewer|quicksupport|rustdesk|airdroid|screen\\s*shar\\w*|remote\\s*access)\\b",
+  "flags": "i",
+  "label": {
+   "en": "Asks you to install a remote-access / screen-share app"
+  },
+  "why": {
+   "en": "Screen-sharing apps let the caller watch your screen and your OTPs and operate your banking apps."
+  },
+  "examples": [
+   "Install AnyDesk so our officer can help you.",
+   "Please start screen sharing now."
+  ],
+  "counterExamples": [
+   "Your order has shipped.",
+   "Thanks for visiting our branch."
+  ]
+ },
+ {
+  "id": "apk_install",
+  "weight": 60,
+  "category": "malware",
+  "critical": false,
+  "pattern": "\\.apk\\b|install\\s+(?:this|the)\\s+(?:app|apk)|download\\s+(?:this|the)?\\s*apk",
+  "flags": "i",
+  "label": {
+   "en": "Pushes an APK / unofficial app install"
+  },
+  "why": {
+   "en": "Apps installed from links (.apk) can read your SMS and OTPs. Genuine providers use the official Play Store/App Store."
+  },
+  "examples": [
+   "Download this apk from the link.",
+   "Install the app from http://x.top/bill.apk"
+  ],
+  "counterExamples": [
+   "Get our app on the Play Store.",
+   "Your statement is ready."
+  ]
+ },
+ {
+  "id": "digital_arrest",
+  "weight": 75,
+  "category": "digital_arrest",
+  "critical": true,
+  "pattern": "digital\\s*arrest|arrest\\s+warrant|money\\s*launder\\w*|safe\\s*account|rbi\\s+(?:verification|safe|secure)\\s+account|verification\\s+account",
+  "flags": "i",
+  "label": {
+   "en": "'Digital arrest' / safe-account / arrest-warrant language"
+  },
+  "why": {
+   "en": "There is no 'digital arrest' in Indian law. Fake officers use it to scare victims into paying."
+  },
+  "examples": [
+   "You are under digital arrest.",
+   "Transfer the amount to the RBI safe account."
+  ],
+  "counterExamples": [
+   "Your bank statement is ready.",
+   "Reminder: your appointment is tomorrow."
+  ]
+ },
+ {
+  "id": "isolation",
+  "weight": 45,
+  "category": "digital_arrest",
+  "critical": false,
+  "pattern": "(?:do\\s*not|don'?t|dont)\\s+(?:disconnect|cut)\\s+(?:the\\s+)?(?:video\\s+)?call|stay\\s+on\\s+(?:the\\s+)?(?:video\\s+)?call|(?:do\\s*not|don'?t|dont)\\s+(?:tell|inform)\\s+(?:anyone|anybody|your\\s+family|family)",
+  "flags": "i",
+  "label": {
+   "en": "Tells you to stay on the call / not tell anyone"
+  },
+  "why": {
+   "en": "Isolating the victim ('don't tell your family', 'stay on video') is a core part of the scam script."
+  },
+  "examples": [
+   "Do not disconnect the video call.",
+   "Don't tell anyone about this, including family."
+  ],
+  "counterExamples": [
+   "Please call us back when free.",
+   "Stay safe and drive carefully."
+  ]
+ },
+ {
+  "id": "parcel_drugs",
+  "weight": 55,
+  "category": "digital_arrest",
+  "critical": false,
+  "pattern": "(?:parcel|courier|consignment|package)[^.\\n]{0,80}(?:drugs?|narcotics?|mdma|illegal|contraband|fake\\s+passports?|seized)|(?:drugs?|narcotics?|mdma|illegal|contraband)[^.\\n]{0,80}(?:parcel|courier|consignment|package)",
+  "flags": "i",
+  "label": {
+   "en": "Parcel / courier linked to drugs or illegal items"
+  },
+  "why": {
+   "en": "A 'seized parcel in your name' is the standard opening of the fake-police scam."
+  },
+  "examples": [
+   "A parcel in your name was seized with drugs.",
+   "Illegal items were found in your courier."
+  ],
+  "counterExamples": [
+   "Your parcel is out for delivery.",
+   "The courier will arrive by 5 pm."
+  ]
+ },
+ {
+  "id": "authority",
+  "weight": 25,
+  "category": "digital_arrest",
+  "critical": false,
+  "pattern": "\\b(?:cbi|enforcement\\s+directorate|narcotics|ncb|customs|cyber\\s*(?:crime|cell|police)|crime\\s*branch|trai|supreme\\s*court|income\\s*tax\\s*(?:dept|department|officer)|fedex|dhl|inspector)\\b",
+  "flags": "i",
+  "label": {
+   "en": "Claims to be police / CBI / customs / a regulator"
+  },
+  "why": {
+   "en": "Impersonating authority creates fear so you stop thinking. Verify by calling the office on its official number."
+  },
+  "examples": [
+   "This is the CBI calling about your case.",
+   "Inspector Verma from Cyber Crime Branch."
+  ],
+  "counterExamples": [
+   "Your bank statement is ready.",
+   "Happy birthday from all of us."
+  ]
+ },
+ {
+  "id": "urgency",
+  "weight": 15,
+  "category": "generic",
+  "critical": false,
+  "pattern": "within\\s+\\d+\\s*(?:hours?|hrs?|minutes?|mins?)|immediately|urgent(?:ly)?|last\\s+warning|expires?\\s+(?:today|tonight)|final\\s+notice|right\\s+now|act\\s+now|tonight|today\\s+only",
+  "flags": "i",
+  "label": {
+   "en": "Artificial urgency / deadline"
+  },
+  "why": {
+   "en": "Scammers rush you so you don't verify. Real institutions give written notice and time."
+  },
+  "examples": [
+   "Pay within 2 hours or lose access.",
+   "Final notice, act now."
+  ],
+  "counterExamples": [
+   "Your order will arrive next week.",
+   "See you at the meeting."
+  ]
+ },
+ {
+  "id": "account_threat",
+  "weight": 30,
+  "category": "generic",
+  "critical": false,
+  "pattern": "\\b(?:account|sim|number|card|services?|aadhaar|upi|pan)\\b[^.\\n]{0,40}?\\b(?:blocked|suspended|deactivated|disconnected|frozen|closed|terminated|cancelled)\\b",
+  "flags": "i",
+  "label": {
+   "en": "Threatens to block / suspend your account, SIM or service"
+  },
+  "why": {
+   "en": "Threats of blocking are used to force a quick click or call. Check the status in the official app instead."
+  },
+  "examples": [
+   "Your account will be blocked today.",
+   "Your SIM card will be deactivated."
+  ],
+  "counterExamples": [
+   "Your account statement is ready.",
+   "Welcome to our bank."
+  ]
+ },
+ {
+  "id": "kyc",
+  "weight": 35,
+  "category": "kyc",
+  "critical": false,
+  "pattern": "kyc\\s*(?:update|expir\\w*|pending|verification|incomplete)|update\\s+(?:your\\s+)?(?:pan|kyc|aadhaar)|pan\\s+(?:card\\s+)?(?:will\\s+be\\s+)?(?:blocked|suspended)",
+  "flags": "i",
+  "label": {
+   "en": "KYC / PAN update demand"
+  },
+  "why": {
+   "en": "Banks do not ask you to update KYC through links or by sharing OTPs over SMS/WhatsApp."
+  },
+  "examples": [
+   "Your KYC update is pending.",
+   "Update your PAN immediately."
+  ],
+  "counterExamples": [
+   "Thanks for visiting the branch.",
+   "Your statement is attached."
+  ]
+ },
+ {
+  "id": "electricity",
+  "weight": 40,
+  "category": "electricity",
+  "critical": false,
+  "pattern": "electricity\\s+(?:bill|connection|supply)|power\\s+(?:supply|connection)\\s+will\\s+be\\s+(?:cut|disconnected)|(?:bill|electricity)[^.\\n]{0,40}(?:disconnect\\w*|tonight)",
+  "flags": "i",
+  "label": {
+   "en": "Electricity-bill disconnection threat"
+  },
+  "why": {
+   "en": "'Your power will be cut tonight' with a number to call is a widespread scam that often ends in an APK install."
+  },
+  "examples": [
+   "Your electricity bill is unpaid and supply disconnect tonight.",
+   "Your power supply will be cut tonight."
+  ],
+  "counterExamples": [
+   "Your order is on the way.",
+   "Thanks for your payment."
+  ]
+ },
+ {
+  "id": "investment_promise",
+  "weight": 45,
+  "category": "investment",
+  "critical": false,
+  "pattern": "guaranteed\\s+(?:returns?|profit)|double\\s+your\\s+money|assured\\s+returns?|\\d+\\s*%\\s*(?:daily|per\\s*day|weekly|guaranteed|returns?)|daily\\s+(?:profit|income|returns?)|risk[- ]free|100%\\s*(?:profit|return)|sure[- ]shot|insider\\s+tips?",
+  "flags": "i",
+  "label": {
+   "en": "Guaranteed / unrealistic investment returns"
+  },
+  "why": {
+   "en": "Guaranteed or very high returns do not exist in legitimate investing."
+  },
+  "examples": [
+   "Guaranteed returns of 30% per day.",
+   "Double your money in a week."
+  ],
+  "counterExamples": [
+   "Mutual fund investments are subject to market risks.",
+   "Your SIP was processed."
+  ]
+ },
+ {
+  "id": "group_lure",
+  "weight": 25,
+  "category": "investment",
+  "critical": false,
+  "pattern": "(?:vip|premium|exclusive)\\s+(?:group|channel|club)|stock\\s+(?:tips|signals)|ipo\\s+allot\\w*|institutional\\s+(?:account|trading)|(?:join|added)[^.\\n]{0,30}(?:whatsapp|telegram)?\\s*(?:group|channel)",
+  "flags": "i",
+  "label": {
+   "en": "VIP stock group / IPO-allotment / trading-tip lure"
+  },
+  "why": {
+   "en": "Invite-only groups with 'expert' tips are how investment scams recruit victims."
+  },
+  "examples": [
+   "Join our VIP group for stock tips.",
+   "You are added to the exclusive channel."
+  ],
+  "counterExamples": [
+   "Join us for lunch tomorrow.",
+   "The class meets on Monday."
+  ]
+ },
+ {
+  "id": "task_job",
+  "weight": 40,
+  "category": "job_task",
+  "critical": false,
+  "pattern": "part[- ]time\\s+job|work\\s+from\\s+home|earn\\s+(?:₹|rs\\.?|inr)?\\s?[\\d,]+\\s*(?:per|/|a)\\s*(?:day|hour|week)|like\\s+(?:and|&)\\s+subscribe|like\\s+(?:youtube\\s+)?videos|rate\\s+(?:hotels?|products?|restaurants?)|prepaid\\s+task|task\\s+complet\\w+",
+  "flags": "i",
+  "label": {
+   "en": "Part-time job / 'task' earning scheme"
+  },
+  "why": {
+   "en": "Paid-per-task jobs that later ask for deposits are a known scam pattern."
+  },
+  "examples": [
+   "Part-time job: like videos and earn money.",
+   "Work from home and earn Rs 5000 per day."
+  ],
+  "counterExamples": [
+   "We have a full-time opening in Pune.",
+   "Your interview is on Monday."
+  ]
+ },
+ {
+  "id": "upfront_fee",
+  "weight": 40,
+  "category": "generic",
+  "critical": false,
+  "pattern": "(?:processing|registration|release|clearance|customs|insurance|refundable|security|verification)\\s+(?:fee|charges?|deposit|amount)|pay\\s+(?:a\\s+)?(?:small\\s+)?(?:fee|deposit)\\s+to\\s+(?:receive|release|claim|withdraw)|deposit\\s+(?:₹|rs\\.?|inr)\\s?[\\d,]+\\s+to\\s+(?:start|begin|activate)",
+  "flags": "i",
+  "label": {
+   "en": "Asks you to pay a fee/deposit to receive money or unlock earnings"
+  },
+  "why": {
+   "en": "Genuine prizes, loans, jobs and refunds do not require you to pay first."
+  },
+  "examples": [
+   "Pay a registration fee to withdraw your earnings.",
+   "A refundable deposit is needed to release funds."
+  ],
+  "counterExamples": [
+   "Your fee receipt is attached.",
+   "Thanks for your payment."
+  ]
+ },
+ {
+  "id": "lottery",
+  "weight": 45,
+  "category": "lottery",
+  "critical": false,
+  "pattern": "(?:won|winner|selected)\\b[^.\\n]{0,40}(?:lottery|prize|lucky\\s*draw|kbc|iphone|gift|cash\\s*prize|reward)|kbc\\s+lottery|claim\\s+(?:your\\s+)?(?:prize|reward|gift)",
+  "flags": "i",
+  "label": {
+   "en": "Prize / lottery you never entered"
+  },
+  "why": {
+   "en": "You cannot win a lottery you did not enter. Fees to 'claim' prizes are the scam."
+  },
+  "examples": [
+   "You have won a lottery of 25 lakh.",
+   "Claim your prize today."
+  ],
+  "counterExamples": [
+   "The lottery results are on the news.",
+   "Congratulations on your promotion."
+  ]
+ },
+ {
+  "id": "loan_app",
+  "weight": 35,
+  "category": "loan",
+  "critical": false,
+  "pattern": "instant\\s+loan|loan\\s+(?:approved|sanctioned)|pre[- ]approved\\s+loan|no\\s+cibil|loan\\s+without\\s+(?:documents|kyc)|(?:contacts?|gallery|photos?)\\s+access|loan\\s+app",
+  "flags": "i",
+  "label": {
+   "en": "Instant-loan / loan-app lure"
+  },
+  "why": {
+   "en": "Predatory loan apps harvest contacts and photos and are linked to harassment."
+  },
+  "examples": [
+   "Instant loan approved without documents.",
+   "Pre-approved loan for you."
+  ],
+  "counterExamples": [
+   "Your home loan EMI is due.",
+   "Thank you for repaying."
+  ]
+ },
+ {
+  "id": "refund_trick",
+  "weight": 45,
+  "category": "refund",
+  "critical": false,
+  "pattern": "refund\\s+(?:is\\s+)?(?:pending|initiated|stuck|failed)|wrongly\\s+(?:transferred|credited|sent)|(?:amount|money)\\s+(?:was\\s+)?(?:sent|credited|transferred)\\s+(?:by\\s+mistake)",
+  "flags": "i",
+  "label": {
+   "en": "Refund / 'sent by mistake' pretext"
+  },
+  "why": {
+   "en": "Refund pretexts are used to get you to approve a payment request or share credentials."
+  },
+  "examples": [
+   "Your refund is pending, click here.",
+   "The money was wrongly transferred to you."
+  ],
+  "counterExamples": [
+   "Your order was delivered.",
+   "Thanks for shopping."
+  ]
+ },
+ {
+  "id": "qr_receive",
+  "weight": 70,
+  "category": "refund",
+  "critical": true,
+  "pattern": "scan\\s+(?:the\\s+|this\\s+)?qr[^.\\n]{0,40}(?:receive|refund|claim)|(?:enter|put)\\s+(?:your\\s+)?upi\\s*pin\\s+to\\s+receive",
+  "flags": "i",
+  "label": {
+   "en": "Asks you to scan a QR / enter UPI PIN to RECEIVE money"
+  },
+  "why": {
+   "en": "You never need a PIN or QR scan to receive money. If a PIN is requested, money is leaving your account."
+  },
+  "examples": [
+   "Scan this QR to receive the refund.",
+   "Enter your UPI PIN to receive money."
+  ],
+  "counterExamples": [
+   "Scan the QR to pay at the shop.",
+   "Your UPI PIN is private."
+  ]
+ },
+ {
+  "id": "family_emergency",
+  "weight": 40,
+  "category": "family",
+  "critical": false,
+  "pattern": "(?:hi|hello|hey)\\s+(?:mom|mum|dad|papa|mama|beta)\\b[^.\\n]{0,80}(?:new\\s+number|lost|broke|changed)|(?:emergency|hospital|accident)[^.\\n]{0,60}(?:send|transfer|pay)\\w*\\s+(?:me\\s+)?(?:money|₹|rs|\\d)",
+  "flags": "i",
+  "label": {
+   "en": "'Hi Mum/Dad, new number' or emergency money request"
+  },
+  "why": {
+   "en": "Impersonating a relative from a 'new number' is a common WhatsApp scam."
+  },
+  "examples": [
+   "Hi mum, I lost my phone, this is my new number.",
+   "Emergency at hospital, send money now."
+  ],
+  "counterExamples": [
+   "Hi mum, dinner at 8.",
+   "The hospital visit went well."
+  ]
+ }
+]

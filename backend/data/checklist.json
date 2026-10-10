@@ -1,0 +1,72 @@
+[
+ {
+  "id": "call1930",
+  "title": {
+   "en": "Call 1930 now",
+   "hi": "अभी 1930 पर कॉल करें"
+  },
+  "detail": {
+   "en": "The National Cyber Crime Helpline for financial fraud. Read the call script below, top to bottom, and ask for the complaint reference number."
+  }
+ },
+ {
+  "id": "alertBank",
+  "title": {
+   "en": "Alert your bank and block",
+   "hi": "अपने बैंक को सूचित करें और ब्लॉक करवाएँ"
+  },
+  "detail": {
+   "en": "Use the number on your card or the bank's app. Report the unauthorised transaction, ask them to block cards/UPI/net-banking as needed, and note the complaint number."
+  }
+ },
+ {
+  "id": "preserveEvidence",
+  "title": {
+   "en": "Preserve the evidence",
+   "hi": "सबूत सुरक्षित रखें"
+  },
+  "detail": {
+   "en": "Don't delete chats, call logs, SMS or the app. Screenshot every transaction page and the scammer's number, profile and links."
+  }
+ },
+ {
+  "id": "fileComplaint24h",
+  "title": {
+   "en": "File the formal complaint within 24 hours",
+   "hi": "24 घंटे के भीतर औपचारिक शिकायत दर्ज करें"
+  },
+  "detail": {
+   "en": "On cybercrime.gov.in, using the complaint text below. After your 1930 call you receive an SMS with a reference number and a link to the portal."
+  }
+ },
+ {
+  "id": "secureAccounts",
+  "title": {
+   "en": "Secure your accounts",
+   "hi": "अपने खाते सुरक्षित करें"
+  },
+  "detail": {
+   "en": "Change passwords and UPI PIN. If you installed an APK or screen-share app, uninstall it and check your other bank accounts and apps."
+  }
+ },
+ {
+  "id": "bewareRecovery",
+  "title": {
+   "en": "Beware of 'recovery' offers",
+   "hi": "'रिकवरी' के झूठे प्रस्तावों से सावधान"
+  },
+  "detail": {
+   "en": "Anyone who contacts you promising to recover your money for a fee is very likely a second scam."
+  }
+ },
+ {
+  "id": "followUp",
+  "title": {
+   "en": "Follow up",
+   "hi": "फॉलो-अप करें"
+  },
+  "detail": {
+   "en": "Track the complaint on cybercrime.gov.in and keep printouts to take to your bank branch or cyber cell."
+  }
+ }
+]

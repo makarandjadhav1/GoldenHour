@@ -1,0 +1,96 @@
+{
+ "brands": {
+  "sbi": [
+   "sbi.co.in",
+   "onlinesbi.sbi",
+   "sbi.bank.in",
+   "sbicard.com",
+   "sbilife.co.in"
+  ],
+  "hdfc": [
+   "hdfcbank.com",
+   "hdfc.com",
+   "hdfclife.com",
+   "hdfcergo.com",
+   "hdfcsec.com"
+  ],
+  "icici": [
+   "icicibank.com",
+   "icici.com",
+   "icicilombard.com",
+   "iciciprulife.com",
+   "icicisecurities.com"
+  ],
+  "axis": [
+   "axisbank.com"
+  ],
+  "paytm": [
+   "paytm.com",
+   "paytmbank.com"
+  ],
+  "phonepe": [
+   "phonepe.com"
+  ],
+  "npci": [
+   "npci.org.in"
+  ],
+  "uidai": [
+   "uidai.gov.in"
+  ],
+  "incometax": [
+   "incometax.gov.in",
+   "incometaxindia.gov.in"
+  ],
+  "irctc": [
+   "irctc.co.in"
+  ],
+  "amazon": [
+   "amazon.in",
+   "amazon.com"
+  ],
+  "flipkart": [
+   "flipkart.com"
+  ],
+  "fedex": [
+   "fedex.com"
+  ],
+  "dhl": [
+   "dhl.com"
+  ],
+  "indiapost": [
+   "indiapost.gov.in"
+  ]
+ },
+ "shorteners": [
+  "bit.ly",
+  "cutt.ly",
+  "goo.gl",
+  "is.gd",
+  "ow.ly",
+  "rb.gy",
+  "shorturl.at",
+  "t.ly",
+  "tinyurl.com"
+ ],
+ "tlds": [
+  "buzz",
+  "cc",
+  "cf",
+  "cfd",
+  "click",
+  "cyou",
+  "gq",
+  "icu",
+  "link",
+  "ml",
+  "monster",
+  "rest",
+  "sbs",
+  "site",
+  "tk",
+  "top",
+  "vip",
+  "work",
+  "xyz"
+ ]
+}

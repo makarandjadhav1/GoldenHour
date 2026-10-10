@@ -1,0 +1,65 @@
+{
+ "advice": {
+  "en": {
+   "digital_arrest": [
+    "Hang up. There is no 'digital arrest' in Indian law; police do not hold people on video calls or ask for money to 'verify' them.",
+    "Do not transfer anything to any 'safe', 'RBI' or 'verification' account. No genuine agency asks for this.",
+    "Tell a family member or friend right now. 'Don't tell anyone' is part of the script.",
+    "If you already paid or shared details, call 1930 immediately and open the 'I already paid' tab."
+   ],
+   "kyc": [
+    "Don't tap the link and never share an OTP. Open your bank's official app, or call the number printed on your card or passbook, to see whether any KYC action is really pending.",
+    "Report the sender number on Sanchar Saathi > Chakshu (sancharsaathi.gov.in)."
+   ],
+   "electricity": [
+    "Don't call the number in the message and don't install anything. Check your bill on your electricity provider's official app/website or the number on a past paper bill.",
+    "Never install an APK sent over SMS or WhatsApp."
+   ],
+   "investment": [
+    "Guaranteed or very high returns are a hallmark of fraud. Investment schemes were about 77% of reported cyber-fraud losses in 2025 (I4C data as reported by IANS).",
+    "Check any adviser or broker on SEBI's official website before paying anyone.",
+    "Never deposit more to 'unlock' withdrawals. Fake dashboards show fake profits."
+   ],
+   "job_task": [
+    "Genuine employers do not ask you to pay to start work or to 'unlock' task earnings.",
+    "Small early payouts are bait to make you deposit larger amounts."
+   ],
+   "lottery": [
+    "You can't win a lottery you never entered. Never pay a fee to claim a prize."
+   ],
+   "loan": [
+    "Check that the lender is RBI-regulated before sharing documents, and don't install loan apps from links or grant contacts/gallery access."
+   ],
+   "refund": [
+    "You never need to enter a UPI PIN or scan a QR code to RECEIVE money. If it asks for a PIN, money is going out."
+   ],
+   "family": [
+    "Call the person on their old, known number before sending money. Ask something only they would know."
+   ],
+   "malware": [
+    "Don't install APKs or screen-share apps at someone's request.",
+    "If you already installed one: go offline, uninstall it, call your bank to block cards/UPI, then open the 'I already paid' tab."
+   ],
+   "credential": [
+    "Never share an OTP, PIN, CVV or password with anyone, including people claiming to be bank staff."
+   ],
+   "unclear": [
+    "No strong scam markers found. Still verify the sender through an official channel before clicking, paying or sharing details."
+   ]
+  }
+ },
+ "typeNames": {
+  "digital_arrest": "Digital-arrest / fake law-enforcement scam",
+  "kyc": "Fake KYC / account-block scam",
+  "electricity": "Electricity-bill disconnection scam",
+  "investment": "Fake investment / trading-group scam",
+  "job_task": "Part-time job / paid-task scam",
+  "lottery": "Lottery / prize scam",
+  "loan": "Predatory loan-app scam",
+  "refund": "Refund / 'receive money' scam",
+  "family": "Family-emergency impersonation",
+  "malware": "Malicious app / remote-access scam",
+  "credential": "Credential (OTP / PIN) phishing",
+  "unclear": "No clear scam pattern"
+ }
+}

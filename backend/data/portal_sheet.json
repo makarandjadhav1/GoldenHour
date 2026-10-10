@@ -1,0 +1,10 @@
+{
+ "verifiedOn": null,
+ "note": "Best-effort order. MUST be verified against the live cybercrime.gov.in form before launch.",
+ "sections": [
+  {"section": "Complainant details", "keys": ["name", "mobile", "location"]},
+  {"section": "Incident details", "keys": ["when", "description"]},
+  {"section": "Transaction details", "keys": ["bank", "account", "amount", "utrs"]},
+  {"section": "Suspect details", "keys": ["scamPhones", "scamUpi", "scamLinks"]}
+ ]
+}
