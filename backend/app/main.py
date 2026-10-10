@@ -11,30 +11,15 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI, Request
 from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse
 
 from . import db, detect, kb, limits
+from .problem import problem
 from .routes import router
 
 log = logging.getLogger("goldenhour")
 logging.basicConfig(level=os.environ.get("LOG_LEVEL", "INFO"), format="%(message)s")
 MAX_BODY = 16 * 1024
 _loaded_version = ""
-
-
-def problem(status: int, code: str, title: str, detail: str, req_id: str = "") -> JSONResponse:
-    """RFC 7807. The detail never echoes user input."""
-    return JSONResponse(
-        {
-            "type": f"https://goldenhour.example/errors/{code}",
-            "title": title,
-            "status": status,
-            "detail": detail,
-            "instance": req_id,
-        },
-        status_code=status,
-        media_type="application/problem+json",
-    )
 
 
 def load_data(force: bool = False) -> None:

@@ -2,11 +2,12 @@
 
 import os
 
-from fastapi import APIRouter
+from fastapi import APIRouter, Header
 
-from . import builders, db, detect, extract, kb
+from . import ai, builders, db, detect, extract, kb
 from . import fields as fl
-from .schemas import AskIn, PackIn, ReportIn, TextIn, ValidateIn
+from .problem import problem
+from .schemas import AskIn, ExplainIn, PackIn, ReportIn, TextIn, ValidateIn
 from .text import normalize, redact
 
 router = APIRouter(prefix="/v1")
@@ -88,3 +89,17 @@ def ask(body: AskIn):
 @router.post("/report-error", status_code=204)
 def report_error(body: ReportIn):
     db.add_error_report(body.page, body.note)
+
+
+@router.post("/ai/explain")
+def ai_explain(body: ExplainIn, x_gh_ai_consent: str | None = Header(default=None)):
+    if x_gh_ai_consent != "1":
+        return problem(400, "consent_required", "Consent required", "AI features are opt-in.")
+    if not ai.enabled():
+        return problem(503, "ai_disabled", "AI is not available", "The extra opinion is switched off.")
+    if not db.spend_tokens(ai.MAX_TOKENS + len(body.maskedText) // 3, int(os.environ.get("AI_DAILY_TOKEN_CAP", 500000))):
+        return problem(503, "ai_budget_exhausted", "AI budget used up", "The extra opinion is unavailable today.")
+    try:
+        return ai.explain(body.maskedText, body.ruleLabels, body.language)
+    except Exception:
+        return problem(502, "ai_upstream_error", "AI unavailable", "The extra opinion could not be produced.")

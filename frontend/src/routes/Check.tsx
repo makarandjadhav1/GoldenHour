@@ -8,6 +8,7 @@ import { CopyButton, HighlightedText, VerdictBanner } from "../components/Parts"
 import { useT } from "../i18n/useT";
 import { useStore } from "../store";
 
+const LANG_NAME = { en: "English", hi: "Hindi", mr: "Marathi" } as const;
 const EXAMPLES = ["kyc", "parcel", "job"] as const;
 
 export default function Check() {
@@ -16,6 +17,8 @@ export default function Check() {
   const { check, setCheck, react, say, setMood, setLost } = useStore();
   const [active, setActive] = useState<number | null>(null);
   const [error, setError] = useState(false);
+  const [consent, setConsent] = useState(false);
+  const [opinion, setOpinion] = useState<Awaited<ReturnType<typeof api.explain>> | "off" | null>(null);
   const typing = useRef<ReturnType<typeof setTimeout>>(undefined);
   const d = check.detection;
 
@@ -66,6 +69,16 @@ export default function Check() {
               </div>
             )}
             <div className="card"><h3>{t("check.todo")}</h3><ul className="steps-list">{d.advice.map((a) => <li key={a}>{a}</li>)}</ul></div>
+            <div className="card">
+              <label className="row"><input type="checkbox" checked={consent} onChange={(e) => setConsent(e.target.checked)} /> {t("ai.consent")}</label>
+              <button className="btn" disabled={!consent} style={{ marginTop: 8 }}
+                onClick={async () => { try { setOpinion(await api.explain(d.redactedText, d.hits.map((h) => h.label), LANG_NAME[lang])); } catch { setOpinion("off"); } }}>{t("ai.button")}</button>
+              {opinion === "off" && <p className="hint" role="status">{t("ai.unavailable")}</p>}
+              {opinion && opinion !== "off" && (
+                <div role="status"><h3>{t("ai.title")} <span className="chip">{opinion.confidence}</span></h3><p>{opinion.why}</p>
+                  {opinion.extraRedFlags.length > 0 && <ul>{opinion.extraRedFlags.map((f) => <li key={f}>{f}</li>)}</ul>}</div>
+              )}
+            </div>
             <p className="hint">{t("check.heuristic")}</p>
             <div className="row">
               {d.verdict !== "low" && <CopyButton text={familyText} label={t("check.family")} />}

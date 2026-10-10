@@ -61,7 +61,9 @@ def test_no_none_nan(f, mode):
 
 def test_pairing_and_missing():
     f = empty_fields() | {"amount": "₹49,999, ₹25,000", "utrs": ["111111111111", "222222222222"]}
-    assert "UTR 111111111111: ₹49,999" in "\n".join(b.call_script(f)) and "UTR 222222222222: ₹25,000" in "\n".join(b.call_script(f))
+    assert "UTR 111111111111: ₹49,999" in "\n".join(b.call_script(f)) and "UTR 222222222222: ₹25,000" in "\n".join(
+        b.call_script(f)
+    )
     assert any(m["key"] == "utrs" for m in missing_items(empty_fields()))
     assert "UPI Ref No." in missing_items(empty_fields())[0]["howToFind"]
 

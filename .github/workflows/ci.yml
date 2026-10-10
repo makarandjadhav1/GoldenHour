@@ -1,0 +1,31 @@
+name: ci
+on: [push, pull_request]
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:17
+        env: { POSTGRES_USER: gh, POSTGRES_HOST_AUTH_METHOD: trust, POSTGRES_DB: goldenhour }
+        ports: ["5433:5432"]
+    env: { DATABASE_URL: "postgresql://gh@localhost:5433/goldenhour" }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+      - run: cd backend && uv sync && uv run ruff check . && uv run python seed.py && uv run pytest -q
+  frontend:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:17
+        env: { POSTGRES_USER: gh, POSTGRES_HOST_AUTH_METHOD: trust, POSTGRES_DB: goldenhour }
+        ports: ["5433:5432"]
+    env: { DATABASE_URL: "postgresql://gh@localhost:5433/goldenhour" }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: cd backend && uv sync && uv run python seed.py
+      - run: cd frontend && npm ci && npx tsc --noEmit && npx eslint src && npx vitest run && npm run build
+      - run: cd frontend && npx playwright install --with-deps chromium && npx playwright test --project=desktop

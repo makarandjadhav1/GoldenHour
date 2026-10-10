@@ -48,3 +48,9 @@ class AskIn(BaseModel):
 class ReportIn(BaseModel):
     page: str = Field(default="", max_length=100)
     note: str = Field(min_length=1, max_length=500)
+
+
+class ExplainIn(BaseModel):
+    maskedText: str = Field(max_length=3000)
+    ruleLabels: list[str] = Field(default_factory=list, max_length=30)
+    language: Literal["English", "Hindi", "Marathi"] = "English"

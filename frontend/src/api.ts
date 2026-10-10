@@ -26,11 +26,11 @@ export interface AskResult {
   results: { id: string; q: string; a: string; sources: { title: string; url: string; publisher: string }[]; verifiedOn: string; score: number; translationPending: boolean }[];
 }
 
-async function call<T>(label: string, path: string, body?: unknown): Promise<T> {
+async function call<T>(label: string, path: string, body?: unknown, extra?: Record<string, string>): Promise<T> {
   const payload = body === undefined ? undefined : JSON.stringify(body);
   const entry = { id: crypto.randomUUID(), t: Date.now(), label, path, method: payload ? "POST" : "GET", bytesOut: payload ? new Blob([payload]).size : 0 };
   try {
-    const res = await fetch(BASE + path, { method: entry.method, headers: payload ? { "Content-Type": "application/json" } : undefined, body: payload });
+    const res = await fetch(BASE + path, { method: entry.method, headers: payload ? { "Content-Type": "application/json", ...extra } : undefined, body: payload });
     const text = res.status === 204 ? "" : await res.text();
     useStore.getState().addLedger({ ...entry, bytesIn: new Blob([text]).size, status: res.status });
     if (!res.ok) throw new Error(String(res.status));
@@ -47,5 +47,7 @@ export const api = {
   validate: (fields: Fields) => call<{ meta: Meta; missing: Missing[] }>("Check fields", "/v1/validate", { fields }),
   pack: (fields: Fields, mode: "A" | "B", lang: string, elapsed: string) => call<Pack>("Build pack", "/v1/pack", { fields, mode, lang, elapsed }),
   ask: (question: string, lang: string) => call<AskResult>("Ask", "/v1/ask", { question, lang }),
+  explain: (maskedText: string, ruleLabels: string[], language: string) =>
+    call<{ why: string; extraRedFlags: string[]; tellFamily: string; confidence: string }>("AI second opinion", "/v1/ai/explain", { maskedText, ruleLabels, language }, { "X-GH-AI-Consent": "1" }),
   report: (page: string, note: string) => call<void>("Report an error", "/v1/report-error", { page, note }),
 };
