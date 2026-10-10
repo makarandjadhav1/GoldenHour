@@ -1,0 +1,39 @@
+/* GoldenHour "First Light" tokens (DRD §3). Light, dark (system + manual), high contrast. */
+:root {
+  --bg: #eef3f5; --surface: #ffffff; --surface-2: #e3ecef;
+  --ink: #13232e; --ink-soft: #44606f;
+  --lagoon: #0e6e7e; --lagoon-deep: #0a4f5b; --on-lagoon: #ffffff;
+  --sun: #e8a33d; --sun-soft: #fbe7c2;
+  --safe: #2e7d5b; --caution: #b8741a; --danger: #b3322f;
+  --line: #c9d6dc; --focus: #0b5fff;
+  --lift: 0 2px 10px rgba(19, 35, 46, 0.1);
+  --r-input: 10px; --r-card: 16px; --r-bubble: 28px; --r-chip: 999px;
+  --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 24px; --s6: 32px; --s7: 48px; --s8: 72px;
+  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --font-display: "Bricolage Grotesque Variable", system-ui, sans-serif;
+  --font-body: "Hind", "Noto Sans Devanagari", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d1a22; --surface: #14262f; --surface-2: #1b323d; --ink: #e9f1f4; --ink-soft: #a7bcc6;
+    --lagoon: #4fc1d3; --lagoon-deep: #7fd6e4; --on-lagoon: #0d1a22;
+    --sun: #f2b558; --sun-soft: #3a2e17; --safe: #5ecb9a; --caution: #e3a24b; --danger: #f27a76;
+    --line: #2a4350; --focus: #6ba1ff; --lift: 0 2px 10px rgba(0, 0, 0, 0.4); color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d1a22; --surface: #14262f; --surface-2: #1b323d; --ink: #e9f1f4; --ink-soft: #a7bcc6;
+  --lagoon: #4fc1d3; --lagoon-deep: #7fd6e4; --on-lagoon: #0d1a22;
+  --sun: #f2b558; --sun-soft: #3a2e17; --safe: #5ecb9a; --caution: #e3a24b; --danger: #f27a76;
+  --line: #2a4350; --focus: #6ba1ff; --lift: 0 2px 10px rgba(0, 0, 0, 0.4); color-scheme: dark;
+}
+:root[data-contrast="high"] {
+  --ink: #000000; --ink-soft: #1a1a1a; --bg: #ffffff; --surface: #ffffff; --line: #000000;
+  --lagoon: #00505e; --danger: #8a1010; --caution: #7a4a00; --safe: #17583d;
+}
+:root[data-theme="dark"][data-contrast="high"] {
+  --ink: #ffffff; --ink-soft: #f0f0f0; --bg: #000000; --surface: #000000; --line: #ffffff;
+  --lagoon: #7fe3f5; --danger: #ffb0ad; --caution: #ffd08a; --safe: #8ff0c0;
+}

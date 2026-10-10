@@ -7,7 +7,9 @@ from hypothesis import strategies as st
 from app import builders as b
 from app.fields import elapsed_banner, empty_fields, fields_from, missing_items, validate
 
-txt = st.text(alphabet=st.characters(exclude_characters="QZXJ", exclude_categories=["Cs"]), max_size=40)
+txt = st.text(alphabet=st.characters(exclude_characters="QZXJ", exclude_categories=["Cs"]), max_size=40).filter(
+    lambda s: not re.search(r"none|nan|undefined|null", s, re.I)
+)
 fields_st = st.fixed_dictionaries(
     {
         "amount": txt,
@@ -58,8 +60,8 @@ def test_no_none_nan(f, mode):
 
 
 def test_pairing_and_missing():
-    f = empty_fields() | {"amount": "₹100, ₹200", "utrs": ["111111111111", "222222222222"]}
-    assert "UTR 111111111111: ₹100" in "\n".join(b.call_script(f))
+    f = empty_fields() | {"amount": "₹49,999, ₹25,000", "utrs": ["111111111111", "222222222222"]}
+    assert "UTR 111111111111: ₹49,999" in "\n".join(b.call_script(f)) and "UTR 222222222222: ₹25,000" in "\n".join(b.call_script(f))
     assert any(m["key"] == "utrs" for m in missing_items(empty_fields()))
     assert "UPI Ref No." in missing_items(empty_fields())[0]["howToFind"]
 

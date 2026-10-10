@@ -35,7 +35,7 @@ def _join(items, ph):
 
 
 def _amounts(f):
-    return [a.strip() for a in re.split(r"[,\n;]+", f["amount"]) if a.strip()] if f["amount"] else []
+    return [a.strip() for a in re.split(r"[;\n]+|,\s+", f["amount"]) if a.strip()] if f["amount"] else []
 
 
 def _transactions(f) -> list[str]:

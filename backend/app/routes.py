@@ -46,6 +46,7 @@ def extract_fields(body: TextIn):
         "missing": fl.missing_items(f),
         "maskedCount": masked,
         "truncated": truncated,
+        "redactedText": t,
     }
 
 

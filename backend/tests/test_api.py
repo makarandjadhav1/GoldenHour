@@ -41,6 +41,11 @@ def test_extract_and_pack(client):
     assert any(r["value"] == "Zed Qwerty" for r in b["portalSheet"]) and b["callScript"] is None
 
 
+def test_extract_returns_redacted_text(client):
+    r = client.post("/v1/extract", json={"text": "OTP 482913 paid Rs 500 UTR 524587920123"}).json()
+    assert "482913" not in r["redactedText"] and r["maskedCount"] >= 1 and "524587920123" in r["redactedText"]
+
+
 def test_validate(client):
     r = client.post("/v1/validate", json={"fields": {"utrs": ["12"], "mobile": "1"}}).json()
     assert r["meta"]["utrs"]["warn"] and r["meta"]["mobile"]["warn"]
